@@ -2,26 +2,26 @@
 // import '/flutter_flow/flutter_flow_util.dart';
 // import '/pages/home_page_copy/home_page_copy_widget.dart';
 import 'package:flutter/material.dart';
+import 'AppBarSplit.dart';
 
-import 'HomePageCOpyCopyModel.dart';
 
-import 'main.dart';
+
+import 'musicSecondPageModel.dart';
 export 'HomePageCopyCopyWidget.dart';
-import 'firstScreen.dart';
 
-class HomePageCopyCopyWidget extends StatefulWidget {
-  const HomePageCopyCopyWidget({Key? key}) : super(key: key);
+class MusicSecondPage extends StatefulWidget {
+  const MusicSecondPage({Key? key}) : super(key: key);
 
   @override
-  _HomePageCopyCopyWidgetState createState() => _HomePageCopyCopyWidgetState();
+  _MusicSecondPage createState() => _MusicSecondPage();
 }
 
 
-
-
-class _HomePageCopyCopyWidgetState extends State<HomePageCopyCopyWidget> {
-  late HomePageCopyCopyModel _model;
-
+class _MusicSecondPage extends State<MusicSecondPage> {
+ late musicSecondPageModel _model;
+ String? greeting;
+ List<String>? instructions;
+ final AppBar appBar = AppBar();
   final scaffoldKey = GlobalKey<ScaffoldState>();
   final _unfocusNode = FocusNode();
 
@@ -32,37 +32,13 @@ class _HomePageCopyCopyWidgetState extends State<HomePageCopyCopyWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      key: scaffoldKey,
-      appBar: AppBar(
-        backgroundColor: Colors.indigoAccent,
-        automaticallyImplyLeading: false,
-        leading: IconButton(
-          icon: Icon(Icons.home),
-          onPressed: () async {
-            await Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (BuildContext context) => const FirstScreen(),
-              ),
-            );
-          },
-        ),
-        title: Text("Dflat。",
-
-
-            style: TextStyle(//color: Color(0x00ffffff
-          fontWeight: FontWeight.bold)),
-
-          centerTitle: true,
-          elevation: 2,
-      ),
-
+    return  Scaffold(
+      appBar: const AppBarSplit(),
       body: SafeArea(
         child: GestureDetector(
           onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
           child: Align(
-            alignment: AlignmentDirectional(0, 0),
+            alignment: const AlignmentDirectional(0, 0),
             child: DefaultTabController(
               length: 2,
               initialIndex: 0,
@@ -94,7 +70,7 @@ class _HomePageCopyCopyWidgetState extends State<HomePageCopyCopyWidget> {
                         //     );
                         //   },
                            Image.asset(
-                            'assets/images/m1.png',
+                            'assets/images/m10.png',
                             width: 30,
                             height: 30,
                             fit: BoxFit.cover,
@@ -125,5 +101,18 @@ class _HomePageCopyCopyWidgetState extends State<HomePageCopyCopyWidget> {
     //     ),
     //   ),
     // );
+  }
+
+ PreferredSizeWidget appBarWidget() {
+    return AppBar(
+      backgroundColor: Colors.indigoAccent,
+      automaticallyImplyLeading: false,
+      leading:  IconButton(
+        icon: const Icon(Icons.home),
+        onPressed: () {
+          Navigator.of(context).pop();
+        },
+      ),
+    );
   }
 }

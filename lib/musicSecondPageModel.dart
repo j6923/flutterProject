@@ -1,24 +1,16 @@
+export 'HomePageCOpyCopyModel.dart';
 
 
-export 'HomePageCopyModel.dart';
-
-class HomePageCopyModel {
-
+class musicSecondPageModel{
   String? greeting;
   List<String>? instructions;
 
-  HomePageCopyModel({this.greeting, this.instructions});
+  musicSecondPageModel({this.greeting, this.instructions});
 
-  HomePageCopyModel.fromJson(Map<String, dynamic> json) {
+  musicSecondPageModel.fromJson(Map<String, dynamic> json) {
     greeting = json['greeting'];
     instructions = json['instructions'].cast<String>();
-
-
-
-
   }
-
-  get pageViewController => null;
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
@@ -26,7 +18,4 @@ class HomePageCopyModel {
     data['instructions'] = this.instructions;
     return data;
   }
-
-
-
 }
